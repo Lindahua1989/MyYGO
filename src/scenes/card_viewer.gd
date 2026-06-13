@@ -139,8 +139,8 @@ func _build_ui() -> void:
 
 	_grid_container = GridContainer.new()
 	_grid_container.columns = grid_columns
-	_grid_container.add_theme_constant_override("h_separation", card_spacing)
-	_grid_container.add_theme_constant_override("v_separation", card_spacing)
+	_grid_container.add_theme_constant_override("h_separation", int(card_spacing))
+	_grid_container.add_theme_constant_override("v_separation", int(card_spacing))
 	_scroll_container.add_child(_grid_container)
 
 	# === 详情面板 (最右侧, 点击卡牌时显示) ===
@@ -204,7 +204,7 @@ func _on_database_loaded(total_count: int) -> void:
 	_current_cards = CardDatabase.get_all_cards()
 	_refresh_grid()
 
-func _on_language_changed(lang: String) -> void:
+func _on_language_changed(_lang: String) -> void:
 	# 刷新全部卡牌显示
 	_refresh_grid()
 	# 如果详情面板打开，也刷新详情
