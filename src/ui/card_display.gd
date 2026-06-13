@@ -73,7 +73,7 @@ func _build_ui() -> void:
 	# 卡图显示
 	art_texture_rect = TextureRect.new()
 	art_texture_rect.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
-	art_texture_rect.stretch_mode = TextureRect.STretchMode.STRETCH_KEEP_ASPECT_CENTERED
+	art_texture_rect.stretch_mode = TextureRect.StretchMode.STRETCH_KEEP_ASPECT_CENTERED
 	art_texture_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	art_texture_rect.set_anchor_offset(SIDE_TOP, 5)
 	art_texture_rect.set_anchor_offset(SIDE_BOTTOM, -40)
