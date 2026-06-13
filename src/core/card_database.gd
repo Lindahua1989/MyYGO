@@ -193,41 +193,41 @@ func search_cards_by_name(query: String, lang: String = "") -> Array:
 func filter_cards(filters: Dictionary) -> Array:
 	var result: Array = []
 	for card in cards.values():
-		var match = true
+		var is_matched = true
 
 		# 卡类型筛选
 		if filters.has("card_type"):
 			if card.card_type != filters["card_type"]:
-				match = false
+				is_matched = false
 
 		# 大类筛选
 		if filters.has("kind"):
 			if not card.card_type.begins_with(filters["kind"]):
-				match = false
+				is_matched = false
 
 		# 属性筛选
 		if filters.has("attribute"):
 			if not card.is_monster() or card.attribute != filters["attribute"]:
-				match = false
+				is_matched = false
 
 		# 种族筛选
 		if filters.has("race"):
 			if not card.is_monster() or card.race != filters["race"]:
-				match = false
+				is_matched = false
 
 		# 星级筛选
 		if filters.has("star"):
 			if not card.is_monster() or card.star != filters["star"]:
-				match = false
+				is_matched = false
 
 		# 名称搜索
 		if filters.has("name_query"):
 			var lang = filters.get("lang", current_language)
 			var name = card.get_display_name(lang).to_lower()
 			if not name.contains(filters["name_query"].to_lower()):
-				match = false
+				is_matched = false
 
-		if match:
+		if is_matched:
 			result.append(card)
 
 	return result

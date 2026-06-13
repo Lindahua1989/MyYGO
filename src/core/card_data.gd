@@ -157,14 +157,21 @@ func from_dict(data: Dictionary) -> void:
 	attack = data.get("attack", 0)
 	defense = data.get("defense", 0)
 	star = data.get("star", 0)
-	attribute = data.get("attribute", "")
-	race = data.get("race", "")
-	card_type = data.get("cardType", "")
-	art_file = data.get("artFile", "")
+	# JSON中null值不能赋给String, 需要特殊处理
+	attribute = _safe_string(data.get("attribute", ""))
+	race = _safe_string(data.get("race", ""))
+	card_type = _safe_string(data.get("cardType", ""))
+	art_file = _safe_string(data.get("artFile", ""))
 	pack_id = data.get("packId", 0)
 	is_placeholder = data.get("isPlaceholder", false)
 	is_unstable = data.get("isUnstable", false)
 	raw_bytes = data.get("rawBytes", [])
+
+## 安全地将任意值转换为String (处理null)
+func _safe_string(value) -> String:
+	if value == null:
+		return ""
+	return str(value)
 
 ## 创建CardData的静态工厂方法
 static func create_from_dict(data: Dictionary) -> CardData:

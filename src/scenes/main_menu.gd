@@ -46,7 +46,7 @@ func _build_ui() -> void:
 	title_style.bg_color = Color(0.15, 0.15, 0.2)
 	title_style.set_corner_radius_all(10)
 	title_style.border_color = Color(0.4, 0.4, 0.6)
-	title_style.border_width_all(2)
+	title_style.border_width_bottom = 2; title_style.border_width_top = 2; title_style.border_width_left = 2; title_style.border_width_right = 2
 	title_label.add_theme_stylebox_override("normal", title_style)
 	center_vbox.add_child(title_label)
 
@@ -77,13 +77,13 @@ func _add_menu_button(container: VBoxContainer, text: String, callback: Callable
 	btn_style.bg_color = Color(0.2, 0.2, 0.25)
 	btn_style.set_corner_radius_all(8)
 	btn_style.border_color = Color(0.4, 0.4, 0.5)
-	btn_style.border_width_all(1)
+	btn_style.border_width_bottom = 1; btn_style.border_width_top = 1; btn_style.border_width_left = 1; btn_style.border_width_right = 1
 
 	var btn_hover = StyleBoxFlat.new()
 	btn_hover.bg_color = Color(0.3, 0.3, 0.35)
 	btn_hover.set_corner_radius_all(8)
 	btn_hover.border_color = Color(0.6, 0.6, 0.7)
-	btn_hover.border_width_all(1)
+	btn_hover.border_width_bottom = 1; btn_style.border_width_top = 1; btn_style.border_width_left = 1; btn_style.border_width_right = 1
 
 	button.add_theme_stylebox_override("normal", btn_style)
 	button.add_theme_stylebox_override("hover", btn_hover)

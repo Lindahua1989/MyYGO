@@ -1,24 +1,29 @@
 ; Engine configuration file.
 ; It's best edited using the editor UI and not directly,
-; but it can also be edited via this script.
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
 
 [application]
 
 config/name="MyYGO"
 config/description="Yu-Gi-Oh! Power of Chaos - Rebuild from scratch"
 run/main_scene="res://src/scenes/main_menu.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.6")
+
+[autoload]
+
+CardDatabase="*res://src/core/card_database.gd"
 
 [display]
 
 window/size/viewport_width=1024
 window/size/viewport_height=768
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep"
-
-[autoload]
-
-CardDatabase="*res://src/core/card_database.gd"
 
 [input]
 
