@@ -183,8 +183,8 @@ func search_cards_by_name(query: String, lang: String = "") -> Array:
 	var lower_query = query.to_lower()
 
 	for card in cards.values():
-		var name = card.get_display_name(lang).to_lower()
-		if name.contains(lower_query):
+		var card_name_str = card.get_display_name(lang).to_lower()
+		if card_name_str.contains(lower_query):
 			result.append(card)
 
 	return result
@@ -223,8 +223,8 @@ func filter_cards(filters: Dictionary) -> Array:
 		# 名称搜索
 		if filters.has("name_query"):
 			var lang = filters.get("lang", current_language)
-			var name = card.get_display_name(lang).to_lower()
-			if not name.contains(filters["name_query"].to_lower()):
+			var card_name_str = card.get_display_name(lang).to_lower()
+			if not card_name_str.contains(filters["name_query"].to_lower()):
 				is_matched = false
 
 		if is_matched:
