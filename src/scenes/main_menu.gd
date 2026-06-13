@@ -52,14 +52,11 @@ func _build_ui() -> void:
 
 	# 版本信息
 	var version_label = Label.new()
-	version_label.text = "v0.1 - Phase 2: 卡牌浏览"
-	version_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	version_label.add_theme_font_size_override("font_size", 12)
-	center_vbox.add_child(version_label)
+	version_label.text = "v0.2 - Phase 3: 组卡器"
 
 	# 功能按钮
 	_add_menu_button(center_vbox, "📚 卡牌浏览", _on_card_viewer_pressed)
-	_add_menu_button(center_vbox, "🃏 组卡器 (Phase 3)", _on_not_implemented)
+	_add_menu_button(center_vbox, "🃏 组卡器", _on_deck_builder_pressed)
 	_add_menu_button(center_vbox, "⚔ 决斗 (Phase 5)", _on_not_implemented)
 	_add_menu_button(center_vbox, "⚙ 设置", _on_settings_pressed)
 	_add_menu_button(center_vbox, "❌ 退出", _on_quit_pressed)
@@ -96,6 +93,9 @@ func _add_menu_button(container: VBoxContainer, text: String, callback: Callable
 
 func _on_card_viewer_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/scenes/card_viewer.tscn")
+
+func _on_deck_builder_pressed() -> void:
+	get_tree().change_scene_to_file("res://src/scenes/deck_builder.tscn")
 
 func _on_settings_pressed() -> void:
 	# 简单的语言切换对话框

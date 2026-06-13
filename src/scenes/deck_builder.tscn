@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3k7m0x5p2q8n"]
+
+[ext_resource type="Script" path="res://src/scenes/deck_builder.gd" id="1_deck"]
+
+[node name="DeckBuilder" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_deck")
