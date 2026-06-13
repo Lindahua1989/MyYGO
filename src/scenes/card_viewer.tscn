@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4x7h0y3k8g2n"]
+
+[ext_resource type="Script" path="res://src/scenes/card_viewer.gd" id="1_viewer"]
+
+[node name="CardViewer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_viewer")
